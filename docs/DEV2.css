@@ -11,6 +11,10 @@ border-radius: 2px;
 z-index: 1111111111;
 }
 
+body img.animated {
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+}
 
 .nav-navbar{
   font-family: Roboto Condensed, sans-serif;
