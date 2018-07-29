@@ -3,12 +3,13 @@
 
 .navbar-default{
 position: fixed;
-color:#FF7200;
+color:green;
 text-align: center;
 width: 100%;
-hight: auto;
+height: auto;
 border-radius: 2px;
 z-index: 1111111111;
+background-blend-mode: lighten
 }
 
 body img.animated {
@@ -47,7 +48,7 @@ z-index: auto;
 }
 
 .navbar-inner, .navbar  {
-opacity: 0.70;
+opacity: 0.750;
 }
 
 #NO {

@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top" style="width: auto; height: auto; border-bottom: 2px solid #FF7200; opacity: 0.7;">
+<nav class="navbar navbar-default navbar-fixed-top" style=" width: auto; height: auto; border-bottom: 2px solid #FF7200;">
   <div class="navbar-inner;">
   <div class="container-fluid">
     <div id="NO" class="navbar-header">
@@ -28,11 +28,11 @@
     </ul>
 </div>
 </nav>
-<div class="container.fluid" style="background-color:">
+<div id="home" class="container.fluid" style="background-color:">
    <div class="jumbotron" style="background-image: url('https://onehdwallpaper.com/wp-content/uploads/2015/07/Autumn-Leavs-HD-Wallpapers.jpg') ;color: white; text-align: center; height: 627px;background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; width: 100%;">
 <div class="animated bounceInDown" style="margin-top: 200px;">
   <div><h3 style='font-size: 40px'>UNIVERSAL SCISSORS</h3>
-  <p id="About">Platform for people to create product ideas for marginalized groups</p>
+  <p>Platform for people to create product ideas for marginalized groups</p>
   <a href="https://southpaw.live" target="_blank"><button type="button" class="btn btn-default">JOIN YOUR COMMUNITY</button></a><br><br><br><br><br><br><br>
   <a href="#About"><img src="https://www.goodjudgment.com/bin/arrow-down-white.png" class="animated bounce" style="height: 60px"></a>
 </div>
@@ -41,12 +41,12 @@
 </div>
 </head>
 <body>
-<div class="container">
+<div id="About" class="container">
     <h4 style="text-align: center; font-family: 'Yanone Kaffeesatz', sans-serif; color: #472C25;">OUR JOURNEY TO HELP YOU!</h4>
   <div class="row" style="font-family: Roboto Condensed, sans-serif; color: #472C25;">
     <div class="col-sm-4" style="font-family: Roboto Condensed, sans-serif;">
   <p class="">Our SwitchItUp crew figured out that there was a problem in the classroom and workforce community: left-handed people are left out. Our solution to this epidemic is our 3D printed product, SwitchItUp Scissors. We propose these universal, left AND right handed, scissors to replace old fashioned paper sheers.</p>
-</div><div id="Store" class="col-sm-4" style="font-family: Roboto Condensed, sans-serif;">
+</div><div class="col-sm-4" style="font-family: Roboto Condensed, sans-serif;">
   <p class="">Over 10% of the worlds population is left handed, equating to over 760 million people who avoid using scissors or are forced to learn how to learn to cut with their right hands. In a way, a lack of opportunity has been created for left handed people, for they have been living in a right handed dominant world.</p>
 </div><div class="col-sm-4" style="font-family: Roboto Condensed, sans-serif;">
   <p class="">We are creating products that suit left handed people and work universally too, not leaving anyone out like left handed people have been. We are penetrating the classroom and workforce market, so when the time comes for new scissors, people see the importance in buying ones that suit everyone's needs!</p>
@@ -55,7 +55,7 @@
 </div>
 </div>
 </div>
-<div class="container" style="background-color: #FF7200; width:100%;">
+<div id="Store" class="container" style="background-color: #FF7200; width:100%;">
 <h4 style="text-align: center; font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 30px; border: 3px dashed white; padding: 5px; color: white; ">UNIVERSAL PRODUCTS</h4>
 </div>
 
@@ -110,6 +110,59 @@ $(document).ready(function() {
     });
   });
 });
+</script>
+<script>
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+      &&
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
+
+</script>
+<script>
+var lastScrollTop = 0;
+
+$(window).scroll(function () {
+
+var st = $(this).scrollTop();
+        if (st < lastScrollTop){
+            $('.navbar ').fadeIn();
+        } else {
+          $('.navbar ').fadeOut();
+        }
+        lastScrollTop = st;
+  })
+
 </script>
 
 
